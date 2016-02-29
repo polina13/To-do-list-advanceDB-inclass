@@ -1,0 +1,10 @@
+category-form.vtl
+<h1>Add a category</h1>
+
+<p>Add a category here:</p>
+<!-- create /categories which will be post from the main page to a new page called categories -->
+<form action="/categories" method="post">
+  <label for="name">Category name</label>
+  <input id="name" name="name" type="text">
+  <button type="submit" class="btn btn-sucess">Add a Category</button>
+</form>
