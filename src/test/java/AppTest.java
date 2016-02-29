@@ -49,9 +49,9 @@ public class AppTest extends FluentTest {
   public void allTasksDescriptionOnCategoryPage() {
     Category myCategory = new Category("Household chores");
     myCategory.save();
-    Task firstTask = new Task("Mow the lawn", myCategory.getId());
+    Task firstTask = new Task("Mow the lawn");
     firstTask.save();
-    Task secondTask = new Task("Do the dishes", myCategory.getId());
+    Task secondTask = new Task("Do the dishes");
     secondTask.save();
     String categoryPath = String.format("http://localhost:4567/categories/%d", myCategory.getId());
     goTo(categoryPath);
