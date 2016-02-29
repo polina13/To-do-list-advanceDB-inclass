@@ -24,7 +24,7 @@ public class AppTest extends FluentTest {
   @Test
   public void rootTest() {
       goTo("http://localhost:4567/");
-      assertThat(pageSource()).contains("To Do");
+      assertThat(pageSource()).contains("Welcome to To Do List");
   }
 
   @Test

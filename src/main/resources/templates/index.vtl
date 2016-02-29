@@ -1,29 +1,10 @@
-<h1>To Do</h1>
+<head>
+    <title>To Do List</title>
+</head>
+<body>
+    <h1>Welcome to To Do List</h1>
 
-<p>Create a new category:</p>
+    <h3><a href="/categories">Add or view a category</a></h3>
+    <h3><a href="/tasks">Add or view a task</a></h3>
 
-<form action="/categories" method="post">
-  <label for="name">Category name</label>
-  <input id="name" name="name" type="text">
-  <button type="submit" class="btn btn-success" id= "submitCategory">Add Category</button>
-</form>
-
-<p> Add tasks to any category:</p>
-<form action="/tasks" method="post">
-
-  <div class="form-group">
-    <label for="categoryId">Select a List</label>
-    <select id='categoryId' name='categoryId' type='text'>
-    #foreach($category in $categories)
-      <option value="$category.getId()">$category.getName()</option>
-    #end
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label for="description">Make</label>
-    <input id="description" name="description" type="text" class="form-control">
-  </div>
-
-  <button type="submit" class="btn btn-success">Add Task</button>
-</form>
+</body>
