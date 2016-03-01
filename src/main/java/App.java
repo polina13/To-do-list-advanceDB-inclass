@@ -55,8 +55,9 @@ public class App {
     post("/tasks", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
       String description = request.queryParams("description");
-      Task newTask = new Task(description);
+      Task newTask = new Task(description, false);
       newTask.save();
+      System.out.println("1: " + newTask.getStatus());
       response.redirect("/tasks");
       return null;
     });
@@ -87,6 +88,15 @@ public class App {
       Task task = Task.find(taskId);
       task.addCategory(category);
       response.redirect("/tasks/" + taskId);
+      return null;
+    });
+
+    post("/complete/tasks", (request, response) -> {
+      int taskId = Integer.parseInt(request.queryParams("taskId"));
+      Task myTask = Task.find(taskId);
+      myTask.completeTask();
+      System.out.println("2: " + myTask.getStatus());
+      response.redirect("/tasks");
       return null;
     });
   }

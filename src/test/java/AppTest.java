@@ -30,9 +30,10 @@ public class AppTest extends FluentTest {
   @Test
     public void categoryIsCreatedTest() {
       goTo("http://localhost:4567/");
-      fill("#name").with("Household chores");
-      submit("#submitCategory");
-      assertThat(pageSource()).contains("Your category has been saved.");
+      Category myCategory = new Category("Household chores");
+      myCategory.save();
+      goTo("http://localhost:4567/categories");
+      assertThat(pageSource()).contains("Household chores");
   }
 
   @Test
@@ -49,9 +50,9 @@ public class AppTest extends FluentTest {
   public void allTasksDescriptionOnCategoryPage() {
     Category myCategory = new Category("Household chores");
     myCategory.save();
-    Task firstTask = new Task("Mow the lawn");
+    Task firstTask = new Task("Mow the lawn", false);
     firstTask.save();
-    Task secondTask = new Task("Do the dishes");
+    Task secondTask = new Task("Do the dishes", false);
     secondTask.save();
     String categoryPath = String.format("http://localhost:4567/categories/%d", myCategory.getId());
     goTo(categoryPath);

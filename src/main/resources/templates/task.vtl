@@ -1,3 +1,5 @@
+task.vtl
+
 <h1>$task.getDescription()</h1>
 
 #if($task.getCategories())
@@ -24,4 +26,4 @@
 
 <p><a href="/tasks/$task.getId()/edit">Edit this task</a></p>
 
-<p><a href='/'>Home</a></p>
+<p><a class="btn btn-info" href='/'>Home</a></p>
